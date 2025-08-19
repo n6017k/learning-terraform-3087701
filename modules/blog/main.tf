@@ -76,6 +76,14 @@ module "blog_alb" {
         target_group_arn = module.blog_alb.target_groups[0].arn
       }
     }
+    default = {
+      type = "fixed-response"
+      fixed_response = {
+        content_type = "text/plain"
+        message_body = "Service Unavailable"
+        status_code  = "503"
+      }
+    }
   }
 
   tags = {
