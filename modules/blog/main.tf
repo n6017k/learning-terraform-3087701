@@ -37,6 +37,8 @@ module "blog_autoscaling" {
 
   name = "${var.environment.name}-blog"
 
+  create_launch_template = false
+
   min_size            = var.asg_min
   max_size            = var.asg_max
   vpc_zone_identifier = module.blog_vpc.public_subnets
